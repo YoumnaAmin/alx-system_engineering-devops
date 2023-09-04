@@ -1,2 +1,2 @@
 #!/bin/bash
-awk -F: '{printf "User: %s, Home Directory: %s\n", $1, $6}' /etc/passwd
+awk -F: '{printf "User: %s, Home Directory: %s\n", $1, $6}'
