@@ -2,6 +2,6 @@
 # infinity printing with sleep
 while true
 do
-sleep 2
-echo "To infinity and beyond"
+    echo "To infinity and beyond"
+    sleep 2
 done
