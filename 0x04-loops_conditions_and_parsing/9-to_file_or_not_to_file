@@ -4,11 +4,11 @@ filename="school"
 if [ -e $filename ]
 then
     echo "school file exists"
-    if [ -s $filename ]
+    if ! [[ -s $filename ]]
     then
-        echo "school file is not empty"
+        echo "school file is empty"
     else
-        echp "school file is empty"
+        echo "school file is not empty"
     fi
     if [ -f $filename ]
     then
