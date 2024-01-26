@@ -1,1 +1,7 @@
 #!/usr/bin/env bash
+# infinity printing with sleep
+while true
+do
+sleep 2
+echo "To infinity and beyond"
+done
