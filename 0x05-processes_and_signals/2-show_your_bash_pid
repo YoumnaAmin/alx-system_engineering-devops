@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # prints the id
-ps -auxf
+# shellcheck disable=SC2009
+ps auxf | awk '/bash/'
