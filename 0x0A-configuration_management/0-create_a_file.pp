@@ -1,5 +1,5 @@
 # Create a PP File
-file { '/tmp/holberton':
+file { '/tmp/school':
   ensure  => file, # Makes sure File Exists
   path    => '/tmp/holberton', # PATH
   mode    => '0744',           # Permissions
