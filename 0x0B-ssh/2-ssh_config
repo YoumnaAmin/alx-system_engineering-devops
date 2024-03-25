@@ -1,1 +1,8 @@
 #!/usr/bin/env bash
+# ssh config
+Host 34.232.78.112
+    HostName 34.232.78.112
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PreferredAuthentications publickey
+    PasswordAuthentication no
