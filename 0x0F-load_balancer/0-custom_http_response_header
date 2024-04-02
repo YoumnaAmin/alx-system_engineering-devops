@@ -13,5 +13,5 @@ nstr2="
         internal;
     }"
 sed -i "s/$new_string/$new_string$nstr2/" /etc/nginx/sites-enabled/default
-sed -i "/server_name _/a add_header X-Serverd-By \$HOSTNAME" /etc/nginx/sites-enabled/default
+sed -i "/server_name _/a add_header X-Serverd-By \$HOSTNAME;" /etc/nginx/sites-enabled/default
 service nginx start
