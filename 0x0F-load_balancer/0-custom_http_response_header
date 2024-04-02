@@ -5,13 +5,7 @@ sudo apt-get install nginx -y
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
 new_string="server_name _;";
-nstr2="
-    rewrite ^\/redirect_me google.com permanent;
-    error_page 404 /custom_404.html;
-    location = /custom_404.html {
-        root /usr/share/nginx/html;
-        internal;
-    }"
+nstr2="\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}"
 sed -i "s/$new_string/$new_string$nstr2/" /etc/nginx/sites-enabled/default
 sed -i "/server_name _/a add_header X-Serverd-By \$HOSTNAME;" /etc/nginx/sites-enabled/default
 service nginx start
