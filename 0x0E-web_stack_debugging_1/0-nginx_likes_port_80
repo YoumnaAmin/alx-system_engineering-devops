@@ -15,4 +15,3 @@ if sudo nginx -t; then
 else
     sudo cp /etc/nginx/nginx.conf.backup /etc/nginx/nginx.conf
 fi
-sudo rm /etc/nginx/nginx.conf.backup
