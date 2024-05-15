@@ -10,7 +10,7 @@ server {
 }
 EOF"
 sudo nginx -t
-if [ $? -eq 0 ]; then
+if sudo nginx -t; then
     sudo systemctl reload nginx
 else
     sudo cp /etc/nginx/nginx.conf.backup /etc/nginx/nginx.conf
