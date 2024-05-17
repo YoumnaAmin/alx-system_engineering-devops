@@ -1,4 +1,27 @@
 #!/usr/bin/env bash
-# Web Stack Debugging 1
-sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
-sudo service nginx restart
+# Nginx listening debug script
+
+# Ensure Nginx is installed
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# Backup the existing configuration
+sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
+sudo cp /etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/default.backup
+
+# Update the Nginx configuration to listen on port 80
+sudo sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-enabled/default
+sudo sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:80;/' /etc/nginx/sites-enabled/default
+
+# Verify the configuration
+if sudo nginx -t; then
+    # Reload Nginx to apply the changes
+    sudo systemctl reload nginx
+    echo "Nginx is now listening on port 80."
+else
+    # Restore the backup if there is an error
+    sudo cp /etc/nginx/nginx.conf.backup /etc/nginx/nginx.conf
+    sudo cp /etc/nginx/sites-enabled/default.backup /etc/nginx/sites-enabled/default
+    sudo systemctl reload nginx
+    echo "Error in Nginx configuration. Reverted to the backup."
+fi
