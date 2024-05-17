@@ -17,7 +17,6 @@ sudo sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:80;/' /etc/nginx/s
 if sudo nginx -t; then
     # Reload Nginx to apply the changes
     sudo systemctl reload nginx
-    echo "Nginx is now listening on port 80."
 else
     # Restore the backup if there is an error
     sudo cp /etc/nginx/nginx.conf.backup /etc/nginx/nginx.conf
