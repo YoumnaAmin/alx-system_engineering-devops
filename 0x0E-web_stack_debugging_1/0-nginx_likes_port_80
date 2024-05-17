@@ -17,10 +17,4 @@ sudo sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:80;/' /etc/nginx/s
 if sudo nginx -t; then
     # Reload Nginx to apply the changes
     sudo systemctl reload nginx
-else
-    # Restore the backup if there is an error
-    sudo cp /etc/nginx/nginx.conf.backup /etc/nginx/nginx.conf
-    sudo cp /etc/nginx/sites-enabled/default.backup /etc/nginx/sites-enabled/default
-    sudo systemctl reload nginx
-    echo "Error in Nginx configuration. Reverted to the backup."
 fi
