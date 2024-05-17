@@ -1,4 +1,2 @@
-nginx: [emerg] "server" directive is not allowed here in /etc/nginx/nginx.conf:86
-nginx: configuration file /etc/nginx/nginx.conf test failed
-nginx: [emerg] "server" directive is not allowed here in /etc/nginx/nginx.conf:86
-nginx: configuration file /etc/nginx/nginx.conf test failed
+ * Restarting nginx nginx
+   ...done.
