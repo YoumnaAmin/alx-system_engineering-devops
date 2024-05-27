@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# whoami task
+
+user=$1
+
+# Check if no username argument is provided, set user to the actual root user
+if [ -z "$user" ]; then
+    user=$(whoami)
+fi
+
+# Check if the user exists
+if id "$user" &>/dev/null; then
+    # Run the whoami command as the specified user
+    sudo -u "$user" whoami
+else
+    exit 1
+fi
