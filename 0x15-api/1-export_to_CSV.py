@@ -26,8 +26,6 @@ if user_response.status_code == 200:
     user_data = user_response.json()
     name = user_data["name"]
 else:
-    print(f"Error: Unable to fetch user data (status code: \
-          {user_response.status_code})")
     sys.exit(1)
 
 
@@ -46,6 +44,4 @@ if todos_response.status_code == 200:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         writer.writerows(tasks)
 else:
-    print(f"Error: Unable to fetch todos data (status code: \
-          {todos_response.status_code})")
     sys.exit(1)
