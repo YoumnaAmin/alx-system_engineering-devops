@@ -44,7 +44,6 @@ if todos_response.status_code == 200:
     csv_file = f"{user_id}.csv"
     with open(csv_file, mode='w', newline='') as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-        writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
         writer.writerows(tasks)
 else:
     print(f"Error: Unable to fetch todos data (status code: \
