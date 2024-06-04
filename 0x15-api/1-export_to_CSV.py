@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Script to gather data from an API"""
 
+import csv
 import requests
 import sys
-import csv
 
 
 if len(sys.argv) < 2:

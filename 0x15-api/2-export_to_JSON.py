@@ -35,8 +35,6 @@ if todos_response.status_code == 200:
 
     json_file_name = f"{user_id}.json"
     with open(json_file_name, mode='w') as json_file:
-        json.dump({user_id: tasks}, json_file, indent=4)
-    
-    print(f"Data exported to {json_file_name}")
+        json.dump({user_id: tasks}, json_file)
 else:
     sys.exit(1)
