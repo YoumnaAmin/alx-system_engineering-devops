@@ -19,7 +19,8 @@ if users_response.status_code == 200:
     for user in users_data:
         user_id = str(user['id'])
         username = user['username']
-        user_tasks = [task for task in todos_response.json() if task['userId'] == user['id']]
+        user_tasks = [task for task in todos_response.json()
+                      if task['userId'] == user['id']]
         tasks_data = []
         for task in user_tasks:
             tasks_data.append({
