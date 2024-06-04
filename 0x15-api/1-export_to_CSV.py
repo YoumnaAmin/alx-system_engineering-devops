@@ -39,7 +39,7 @@ if todos_response.status_code == 200:
             task['completed'],
             task['title']
         ])
-    csv_file = f"{username}.csv"
+    csv_file = f"{user_id}.csv"
     with open(csv_file, mode='w', newline='') as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         writer.writerows(tasks)
