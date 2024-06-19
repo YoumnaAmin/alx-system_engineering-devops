@@ -7,21 +7,21 @@ exec { 'fix-apache-permissions':
 }
 
 file { '/etc/apache2/sites-available/000-default.conf':
-  ensure  => 'file',
-  content => '
+  ensure  => file,
+  content => "
 <VirtualHost *:80>
-    ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html
+	ServerAdmin webmaster@localhost
+	DocumentRoot /var/www/html
 
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>',
+	ErrorLog \${APACHE_LOG_DIR}/error.log
+	CustomLog \${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>",
   notify  => Exec['fix-apache-permissions'],
 }
 
 service { 'apache2':
-  ensure     => 'running',
-  enable     => true,
-  subscribe  => File['/etc/apache2/sites-available/000-default.conf'],
-  require    => Exec['fix-apache-permissions'],
+  ensure    => running,
+  enable    => true,
+  subscribe => File['/etc/apache2/sites-available/000-default.conf'],
+  require   => Exec['fix-apache-permissions'],
 }
