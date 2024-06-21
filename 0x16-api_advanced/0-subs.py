@@ -21,10 +21,10 @@ def number_of_subscribers(subreddit):
     except ValueError:
         return 0
 
-    data = js.get("data")
+    data = js['data']
 
     if data:
-        sub_count = data.get("subscribers")
+        sub_count = data['subscribers']
         if sub_count:
             return sub_count
 
