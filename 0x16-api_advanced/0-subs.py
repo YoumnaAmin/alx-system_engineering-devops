@@ -2,11 +2,10 @@
 """subs module"""
 
 
-from requests import get
-
-
 def number_of_subscribers(subreddit):
     """to count numb of subscriber"""
+    from requests import get
+
     url = url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {'User-Agent': 'my-app/0.0.1'}
     response = get(url, headers=headers, allow_redirects=False)
