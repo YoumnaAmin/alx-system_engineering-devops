@@ -55,7 +55,7 @@ def count_words(subreddit, word_list, after="", word_dic={}):
             for w in word_list:
                 word_dic[w] += lower.count(w.lower())
 
-    except:
+    except Exception as e:
         return None
 
-    count_words(subreddit, word_list, after, word_dic)\
+    count_words(subreddit, word_list, after, word_dic)
