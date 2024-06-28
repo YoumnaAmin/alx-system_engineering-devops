@@ -53,7 +53,7 @@ server
         location /airbnb-onepage/ 
         {
                  include proxy_params;
-                 proxy_pass http://0.0.0.0:5000/airbn>
+                proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
         }
 
         # pass PHP scripts to FastCGI server
@@ -92,4 +92,4 @@ server
 #
 #       location / {
 #               try_files $uri $uri/ =404;
-#       }
+#       }y
